@@ -1,0 +1,6 @@
+{
+  "name": "davisgraph",
+  "dependencies": {
+    "d3": "~3.5.2"
+  }
+}
