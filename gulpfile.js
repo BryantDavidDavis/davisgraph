@@ -8,6 +8,7 @@ var coffee = require('gulp-coffee');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var phpunit = require('gulp-phpunit');
 
 //var sassDir = 'app/assets/sass';
 var srcCSSDir = 'app/assets/css';
@@ -36,9 +37,16 @@ gulp.task('js', function() {
 	.pipe(gulp.dest(targetJSDir));
 });
 
+gulp.task('phpunit', function() {
+	//var options = {debug: true};
+	gulp.src('phpunit.xml')
+	.pipe(phpunit('./vendor/bin/phpunit'));
+});
+
 gulp.task('watch', function() {
 	//gulp.watch(sassDir + '/**/*.sass', ['css']);
 	gulp.watch(srcJSDir + '/**/*.js', ['js']);
+	gulp.watch('app/**/*.php', ['phpunit']);
 });
 
 gulp.task('default', ['js', 'watch']);

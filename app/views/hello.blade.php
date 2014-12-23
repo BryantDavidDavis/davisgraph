@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Lost in Roatan</title>
-</head>
-<body>
-	<div class="welcome">
-		<h1>Please log in</h1>
-	</div>
-	{{ HTML::script('js/bundle.js') }}
-</body>
-</html>
+@extends('layouts.default')
+
+@section('content')
+		<h1>And We are off</h1>
+		<a href="{{ route('sessions.create') }}">Sign In</a>
+@stop

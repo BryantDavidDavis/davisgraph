@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::resource('sessions', 'SessionsController');
+Route::resource('pages', 'PagesController');
+
+Route::get('/', function() {
 	return View::make('hello');
 });
+
