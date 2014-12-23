@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lost in Roatan</title>
-	{{ HTML::style('main.css') }}
 </head>
 <body>
 	<div class="welcome">
