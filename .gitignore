@@ -7,3 +7,5 @@ composer.lock
 .DS_Store
 /public/packages/vendor
 Thumbs.db
+node_modules/
+.sass-cache/
