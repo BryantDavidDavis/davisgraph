@@ -30,7 +30,7 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	return gulp.src(srcJSDir + '/main.js')
-	.pipe(browserify({dubug: true}))
+	.pipe(browserify())
 	.pipe(uglify())
 	.pipe(rename('/bundle.js'))
 	.pipe(gulp.dest(targetJSDir));
