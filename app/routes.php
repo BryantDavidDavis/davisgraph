@@ -13,7 +13,8 @@
 
 Route::resource('sessions', 'SessionsController');
 Route::resource('pages', 'PagesController');
-
+Route::resource('users', 'UsersController');
+Route::get('logout', 'SessionsController@destroy');
 Route::get('/', function() {
 	return View::make('hello');
 });

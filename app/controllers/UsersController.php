@@ -1,7 +1,12 @@
 <?php
 
-class SessionsController extends \BaseController {
-
+class UsersController extends \BaseController {
+	protected $user;
+	
+	public function __construct(User $user) {
+		$this->user = $user;
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +14,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('users.index');
 	}
 
 
@@ -20,7 +25,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('sessions.create');
+		return View::make('users.create');
 	}
 
 
@@ -31,7 +36,15 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		if (Auth::attempt(Input::only('username', 'password'))) {
+		$input = Input::all();
+		if ( !$this->user->isValid($input) ) {
+			return Redirect::back()->withInput()->withErrors($this->user->messages);
+		}
+		
+		$input['password'] = Hash::make($input['password']);
+		$this->user->fill($input);
+		$this->user->save();
+		if(Auth::attempt(Input::only('username', 'password'))) {
 			return Redirect::route('users.index');
 		}
 	}
@@ -79,11 +92,9 @@ class SessionsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		echo "about to logout";
-		Auth::logout();
-		return Redirect::action('SessionsController@create');
+		//
 	}
 
 
