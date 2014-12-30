@@ -3,8 +3,9 @@
 class UsersController extends \BaseController {
 	protected $user;
 	
-	public function __construct(User $user) {
+	public function __construct(User $user, Photo $photo) {
 		$this->user = $user;
+		$this->photo = $photo;
 	}
 	
 	/**
@@ -14,7 +15,11 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('users.index');
+		
+		$this->user = Auth::user();
+		$photos = $this->photo->getPhotoFileData($this->user->photos);
+		//$img = Image::make('/home/vagrant/code/davisgraph/app/storage/uploads/bryant/thumb_Screen Shot 2014-12-24 at 09.19.58.png')->encode('data-url');
+		return View::make('users.index', ['photos' => $photos]);
 	}
 
 
