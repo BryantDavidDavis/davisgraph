@@ -64,9 +64,18 @@ class Photo extends Eloquent {
 */
 		$files = array();
 		foreach($my_photos as $my_photo) {
-			array_push($files, Image::make($this->user_photos_path().$my_photo->thumbnailname)->encode('data-url'));
+			//the files array should store a group of objects which each have a data attribute and an id
+			$details = new stdClass();
+			$details->data = Image::make($this->user_photos_path().$my_photo->thumbnailname)->encode('data-url');
+			$details->id = $my_photo->id;
+			array_push($files, $details);
 		}
 		return $files;
+	}
+	
+	public function getBigPhoto($id) {
+		$my_photo = $this->find($id);
+		return Image::make($this->user_photos_path().$my_photo->imagename)->encode('data-url');
 	}
 /*
 	public function getPhoto($thumbnailname) {

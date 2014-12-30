@@ -68,7 +68,8 @@ class PhotosController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		//
+		$photo = $this->photo->getBigPhoto($id);
+		return View::make('photos.show', ['photo' => $photo]);
 	}
 
 	/**
