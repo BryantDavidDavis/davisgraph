@@ -33,7 +33,6 @@ class PhotosController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		
 		$input = Input::all();
 		$input['user_id'] = Auth::user()->id;
 		Input::file('imagename');
@@ -42,7 +41,8 @@ class PhotosController extends \BaseController {
 		
 		//$imagename = $input['imagename']->getClientOriginalName();
 		$image = Image::make($input['imagename']->getRealPath());
-		$image->resize(1280, null, function($constraint) {
+		//$image = Image::make(Input::file('imagename'));
+		$image = $image->resize(1280, null, function($constraint) {
 			$constraint->aspectRatio();
 			$constraint->upsize();
 		});
