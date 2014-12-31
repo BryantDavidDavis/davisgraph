@@ -42,6 +42,10 @@ class PhotosController extends \BaseController {
 		
 		//$imagename = $input['imagename']->getClientOriginalName();
 		$image = Image::make($input['imagename']->getRealPath());
+		$image->resize(1280, null, function($constraint) {
+			$constraint->aspectRatio();
+			$constraint->upsize();
+		});
 		
 		if(File::exists($this->user_photos_path())) {
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
