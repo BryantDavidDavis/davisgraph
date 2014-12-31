@@ -47,7 +47,7 @@ class Photo extends Eloquent {
 		$imagename = $uploaded_image->getClientOriginalName();
 		$image = Image::make($uploaded_image->getRealPath());
 		//dd($image);
-		$thumbnailname = "thumb_".$uploaded_image->getClientOriginalName();
+		$thumbnailname = "thumb_".microtime().$uploaded_image->getClientOriginalName();
 		
 		$thumbnail = $image->resize(200, null, function ($constraint) {
 			$constraint->aspectRatio();

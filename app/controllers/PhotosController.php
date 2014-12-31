@@ -45,13 +45,13 @@ class PhotosController extends \BaseController {
 		
 		if(File::exists($this->user_photos_path())) {
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
-			$input['imagename'] = $input['imagename']->getClientOriginalName();
+			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
 			$image->save($this->user_photos_path().$input['imagename']);
 
 		} else {
 			File::makeDirectory($this->user_photos_path());
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
-			$input['imagename'] = $input['imagename']->getClientOriginalName();
+			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
 			$image->save($this->user_photos_path().$input['imagename']);
 		}
 		$this->photo->fill($input);
