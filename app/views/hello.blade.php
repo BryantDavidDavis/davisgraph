@@ -2,6 +2,7 @@
 
 @section('header')
 	{{ HTML::style('css/hello.css') }}
+	<link href='http://fonts.googleapis.com/css?family=Pirata+One' rel='stylesheet' type='text/css'>
 @stop
 
 @section('content')
@@ -23,6 +24,7 @@
 					</ul>
 				</aside>
 				<section class="main-section">
+					<!-- <p>Lost in Roatan</p> -->
 				</section>
 				<a class="exit-off-canvas"></a>			
 			</div>
