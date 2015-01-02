@@ -68,6 +68,8 @@ class Photo extends Eloquent {
 			$details = new stdClass();
 			$details->data = Image::make($this->user_photos_path().$my_photo->thumbnailname)->encode('data-url');
 			$details->id = $my_photo->id;
+			$details->title = $my_photo->title;
+			
 			array_push($files, $details);
 		}
 		return $files;

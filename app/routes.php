@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('photos/photoDestroy/{id}', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
+
 Route::resource('sessions', 'SessionsController');
 Route::resource('pages', 'PagesController');
 Route::resource('users', 'UsersController');

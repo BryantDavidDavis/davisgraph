@@ -5,7 +5,8 @@
 
 @section('content')
 
-<img src="{{$photo}}">
+<label>{{$photo->title }}</label><img src="{{$image}}">
+<p>{{ $photo->description }} </p>
 
 @stop
 

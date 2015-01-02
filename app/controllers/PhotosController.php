@@ -72,8 +72,9 @@ class PhotosController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		$photo = $this->photo->getBigPhoto($id);
-		return View::make('photos.show', ['photo' => $photo]);
+		$image = $this->photo->getBigPhoto($id);
+		$photo = $this->photo->find($id);
+		return View::make('photos.show', ['image' => $image, 'photo' => $photo]);
 	}
 
 	/**
@@ -103,7 +104,15 @@ class PhotosController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		//
+		//echo "We are here";
+		//die;
+		//$this->photo->delete($id);
+		//return Redirect::route('users.index');
+	}
+	
+	public function photoDestroy($id) {
+		$this->photo->destroy($id);
+		return Redirect::route('users.index');
 	}
 
 

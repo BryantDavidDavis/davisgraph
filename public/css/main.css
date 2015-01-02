@@ -1,2 +1,26 @@
-body{animation:foobar 2s}
-/*# sourceMappingURL=main.css.map */
+html, body, body > .page {
+	height: 100%;
+	width: 100%;
+}
+
+.off-canvas-wrap,.inner-wrap {
+	min-height: 100%;
+}
+
+.off-canvas-wrap {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.page {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 27%;
+}
+
+.main-section {
+	font-family: pirata one;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+}

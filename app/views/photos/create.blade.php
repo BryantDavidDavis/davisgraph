@@ -21,7 +21,7 @@
 	
 	{{ Form::submit('Post Me!') }}
 
-{{ Form::close() }}
+	{{ Form::close() }}
 	<a href="{{ url('/logout') }}">signout</a>
 @stop
 
