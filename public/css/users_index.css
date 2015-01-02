@@ -1,5 +1,29 @@
-img {
-	width: 100px;
-	height: 100px;
-	 
+/*
+a > span {
+	position: absolute;
+	bottom: 0;
+}
+*/
+li {
+	border: 1px solid black;
+}
+
+
+
+.th-equal{
+    height: 9em;
+    width: 100%;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.th-equal > span {
+	position: absolute;
+	bottom: 7px;
+	left: 2px;
+	background-color: white;
+	/* background-color: grey; */
 }
