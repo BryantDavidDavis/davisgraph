@@ -19,7 +19,8 @@ class UsersController extends \BaseController {
 		$this->user = Auth::user();
 		$photos = $this->photo->getPhotoFileData($this->user->photos);
 		//$img = Image::make('/home/vagrant/code/davisgraph/app/storage/uploads/bryant/thumb_Screen Shot 2014-12-24 at 09.19.58.png')->encode('data-url');
-		return View::make('users.index', ['photos' => $photos]);
+		$background_img = $this->photo->getPopularPhoto();
+		return View::make('users.index', array('photos' => $photos, 'background_img' => $background_img));
 	}
 
 
@@ -30,7 +31,9 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('users.create');
+		$photo = new Photo();
+		$background_img = $photo->getPopularPhoto();
+		return View::make('users.create', array('background_img' => $background_img));
 	}
 
 

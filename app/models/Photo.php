@@ -79,6 +79,12 @@ class Photo extends Eloquent {
 		$my_photo = $this->find($id);
 		return Image::make($this->user_photos_path().$my_photo->imagename)->encode('data-url');
 	}
+	
+	public function getPopularPhoto() {
+		$popular_photo = $this->orderBy('clicks', 'DESC')->first();
+		$path_to_popular_photo = storage_path().'/uploads/'.$popular_photo->user->username.'/';
+		return Image::make($path_to_popular_photo.$popular_photo->imagename)->encode('data-url');
+	}
 /*
 	public function getPhoto($thumbnailname) {
 		return $this->user_photos_path().$thumbnailname;

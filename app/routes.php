@@ -13,12 +13,15 @@
 
 Route::get('photos/photoDestroy/{id}', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
 
+Route::get('logout', 'SessionsController@destroy');
+
 Route::resource('sessions', 'SessionsController');
 Route::resource('pages', 'PagesController');
 Route::resource('users', 'UsersController');
 Route::resource('photos', 'PhotosController');
-Route::get('logout', 'SessionsController@destroy');
 Route::get('/', function() {
-	return View::make('hello');
+	$photo = new Photo();
+	$background_img = $photo->getPopularPhoto();
+	return View::make('hello', array('background_img' => $background_img));
 });
 

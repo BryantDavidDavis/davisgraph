@@ -74,6 +74,8 @@ class PhotosController extends \BaseController {
 	public function show($id) {
 		$image = $this->photo->getBigPhoto($id);
 		$photo = $this->photo->find($id);
+		$photo->clicks++;
+		$photo->save();
 		return View::make('photos.show', ['image' => $image, 'photo' => $photo]);
 	}
 

@@ -4,6 +4,8 @@
 @stop
 
 @section('content')
+	
+	<img src="{{public_path()./images/Roatan-Pirate-Map.jpg}}">
 	<div class="row">
 		<div class="small-12 small-centered medium-12 large-10 large-centered columns">
 			<h1 class='intro text-center'>Login to Start!</h1>
@@ -22,7 +24,7 @@
 			{{ Form::password('password', null) }}
 	    </div>
 	</div>
-		<div class="row">
+	<div class="row">
 	    <div class="small-6 small-centered medium-4 columns">
 			{{ Form::label('password-confirmation', 'Password Confirmation') }}
 			{{ Form::password('password_confirmation', null) }}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+<html class="no-js" lang="en">
 <html>
 	<head>
 		<meta charset="utf-8"/>
@@ -10,7 +10,7 @@
 		@yield('header')
 	</head>
 	<body>
-		<div class="page" style="background-image:url(images/Roatan-Pirate-Map.jpg)">
+		<div class="page" style="background-image:url({{{ $background_img or 'none'}}})">
 			<div class="off-canvas-wrap" data-offcanvas>
 				<div class="inner-wrap">
 					<nav class="tab-bar">
@@ -23,8 +23,12 @@
 					</nav>
 					<aside class="left-off-canvas-menu">
 						<ul class="off-canvas-list">
+							@if(Auth::check())
+								<li><a href="{{ action('SessionsController@destroy') }}">Logout</a></li>
+							@else
 							<li><a href="{{ route('sessions.create') }}">Login</a></li>
 							<li><a href="{{ route('users.create') }}">Signup</a></li>
+							@endif
 						</ul>
 					</aside>
 					<section class="main-section">

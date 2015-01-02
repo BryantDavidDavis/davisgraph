@@ -20,7 +20,9 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('sessions.create');
+		$photo = new Photo();
+		$background_img = $photo->getPopularPhoto();
+		return View::make('sessions.create', array('background_img' => $background_img));
 	}
 
 
@@ -83,7 +85,7 @@ class SessionsController extends \BaseController {
 	{
 		echo "about to logout";
 		Auth::logout();
-		return Redirect::action('SessionsController@create');
+		return Redirect::to('/');
 	}
 
 
