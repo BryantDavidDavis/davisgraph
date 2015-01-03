@@ -47,16 +47,16 @@ class PhotosController extends \BaseController {
 			$constraint->upsize();
 		});
 		
-		if(File::exists($this->user_photos_path())) {
+		if(File::exists($this->user_photos_path(Auth::user()->id))) {
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
 			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
-			$image->save($this->user_photos_path().$input['imagename']);
+			$image->save($this->user_photos_path(Auth::user()->id).$input['imagename']);
 
 		} else {
-			File::makeDirectory($this->user_photos_path());
+			File::makeDirectory($this->user_photos_path(Auth::user()->id));
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
 			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
-			$image->save($this->user_photos_path().$input['imagename']);
+			$image->save($this->user_photos_path(Auth::user()->id).$input['imagename']);
 		}
 		$this->photo->fill($input);
 		$this->photo->save();

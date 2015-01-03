@@ -36,8 +36,9 @@ class Photo extends Eloquent {
 		return $this->belongsTo('User');
 	}
 	
-	public function user_photos_path() {
-		return storage_path() . '/uploads/'.Auth::user()->username.'/';
+	public function user_photos_path($id) {
+		$username = User::find($id)->username;
+		return storage_path() . '/uploads/'.$username.'/';
 	}
 	
 	/**
@@ -53,7 +54,7 @@ class Photo extends Eloquent {
 			$constraint->aspectRatio();
 		});
 		
-		$thumbnail->save($this->user_photos_path().$thumbnailname);
+		$thumbnail->save($this->user_photos_path(Auth::user()->id).$thumbnailname);
 		
 		return $thumbnailname;
 	}
@@ -66,7 +67,7 @@ class Photo extends Eloquent {
 		foreach($my_photos as $my_photo) {
 			//the files array should store a group of objects which each have a data attribute and an id
 			$details = new stdClass();
-			$details->data = Image::make($this->user_photos_path().$my_photo->thumbnailname)->encode('data-url');
+			$details->data = Image::make($this->user_photos_path($my_photo->user_id).$my_photo->thumbnailname)->encode('data-url');
 			$details->id = $my_photo->id;
 			$details->title = $my_photo->title;
 			
@@ -77,13 +78,14 @@ class Photo extends Eloquent {
 	
 	public function getBigPhoto($id) {
 		$my_photo = $this->find($id);
-		return Image::make($this->user_photos_path().$my_photo->imagename)->encode('data-url');
+		$user_id = $my_photo->user_id;
+		return Image::make($this->user_photos_path($user_id).$my_photo->imagename)->encode('data-url');
 	}
 	
 	public function getPopularPhoto() {
 		$popular_photo = $this->orderBy('clicks', 'DESC')->first();
-		$path_to_popular_photo = storage_path().'/uploads/'.$popular_photo->user->username.'/';
-		return Image::make($path_to_popular_photo.$popular_photo->imagename)->encode('data-url');
+		//$path_to_popular_photo = storage_path().'/uploads/'.$popular_photo->user->username.'/';
+		return Image::make($this->user_photos_path($popular_photo->user_id).$popular_photo->imagename)->encode('data-url');
 	}
 /*
 	public function getPhoto($thumbnailname) {

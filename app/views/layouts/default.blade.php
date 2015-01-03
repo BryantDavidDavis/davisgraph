@@ -20,17 +20,35 @@
 						<section class="middle tab-bar-section">
 							<h1 class="title">Lost in Roatan</h1>
 						</section>
+						@if(Auth::check())
+							<section class="right-small">
+								<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+							</section>
+						@endif						
 					</nav>
 					<aside class="left-off-canvas-menu">
 						<ul class="off-canvas-list">
 							@if(Auth::check())
+								<li><label>Navigate</label></li>
 								<li><a href="{{ action('SessionsController@destroy') }}">Logout</a></li>
+								<li><a href="{{ route('users.index') }}">Home</a></li>
+								<li><label>manage photos</label></li>
 							@else
+							<li><label>login</label></li>
 							<li><a href="{{ route('sessions.create') }}">Login</a></li>
 							<li><a href="{{ route('users.create') }}">Signup</a></li>
 							@endif
 						</ul>
 					</aside>
+					@if(Auth::check())
+						<aside class="right-off-canvas-menu">
+							<ul class="off-canvas-list">
+								<li><label>users</label></li>
+								<li><a href="#">user 1 </a></li>
+								<li><a href="#">user 2 </a></li>
+							</ul>
+						</aside>
+					@endif					
 					<section class="main-section">
 						<!-- <p>Lost in Roatan</p> -->
 		@yield('content')
