@@ -11,14 +11,27 @@
 |
 */
 
-Route::get('photos/photoDestroy/{id}', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
+/*
+Route::filter('auth', function() {
+	if(!Auth::check()) {
+		//return "not logged in silly";
+		return Redirect::to('/');
+	}
+});
+*/
 
-Route::get('logout', 'SessionsController@destroy');
+Route::get('login', 'SessionsController@create');
 
-Route::resource('sessions', 'SessionsController');
-Route::resource('pages', 'PagesController');
-Route::resource('users', 'UsersController');
-Route::resource('photos', 'PhotosController');
+Route::group(array('before' => 'auth'), function() {
+	Route::get('photos/photoDestroy/{id}', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
+	Route::get('logout', 'SessionsController@destroy');
+	
+	Route::resource('sessions', 'SessionsController');
+	Route::resource('pages', 'PagesController');
+	Route::resource('users', 'UsersController');
+	Route::resource('photos', 'PhotosController');	
+});
+
 Route::get('/', function() {
 	$photo = new Photo();
 	$background_img = $photo->getPopularPhoto();
