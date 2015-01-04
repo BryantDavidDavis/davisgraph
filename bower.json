@@ -2,6 +2,7 @@
   "name": "davisgraph",
   "dependencies": {
     "d3": "~3.5.2",
-    "foundation": "~5.5.0"
+    "foundation": "~5.5.0",
+    "jquery-form": "~3.46.0"
   }
 }

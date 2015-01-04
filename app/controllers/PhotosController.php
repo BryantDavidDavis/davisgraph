@@ -117,5 +117,4 @@ class PhotosController extends \BaseController {
 		return Redirect::route('users.index');
 	}
 
-
 }

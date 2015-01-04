@@ -58,6 +58,7 @@
 			</div>
 		</div>
 		{{ HTML::script('packages/vendor/foundation/js/vendor/jquery.js') }}
+		{{ HTML::script('packages/vendor/foundation/js/vendor/fastclick.js') }}
 		{{ HTML::script('packages/vendor/foundation/js/foundation.min.js') }}
 		@yield('footer')
 		<script>

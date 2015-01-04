@@ -11,26 +11,18 @@
 |
 */
 
-/*
-Route::filter('auth', function() {
-	if(!Auth::check()) {
-		//return "not logged in silly";
-		return Redirect::to('/');
-	}
-});
-*/
-
 Route::get('login', 'SessionsController@create');
 
 Route::group(array('before' => 'auth'), function() {
+	Route::post('photos/uploadProgress', array('as' => 'photos.uploadProgress', 'uses' => 'PhotosController@uploadProgress'));
 	Route::get('photos/photoDestroy/{id}', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
 	Route::get('logout', 'SessionsController@destroy');
 	
-	Route::resource('sessions', 'SessionsController');
-	Route::resource('pages', 'PagesController');
 	Route::resource('users', 'UsersController');
 	Route::resource('photos', 'PhotosController');	
 });
+
+Route::resource('sessions', 'SessionsController');
 
 Route::get('/', function() {
 	$photo = new Photo();
