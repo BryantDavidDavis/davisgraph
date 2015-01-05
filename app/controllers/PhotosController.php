@@ -24,9 +24,12 @@ class PhotosController extends \BaseController {
 		return View::make('photos.create');
 	}
 
-	public function user_photos_path() {
-		return storage_path() . '/uploads/'.Auth::user()->username.'/';
+/*
+	public function user_photos_path($user_id) {
+		$username = User::find($user_id)->username;
+		return storage_path() . '/uploads/'.$username.'/';
 	}
+*/
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -47,16 +50,16 @@ class PhotosController extends \BaseController {
 			$constraint->upsize();
 		});
 		
-		if(File::exists($this->user_photos_path(Auth::user()->id))) {
+		if(File::exists($this->photo->user_photos_path(Auth::user()->id))) {
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
 			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
-			$image->save($this->user_photos_path(Auth::user()->id).$input['imagename']);
+			$image->save($this->photo->user_photos_path(Auth::user()->id).$input['imagename']);
 
 		} else {
-			File::makeDirectory($this->user_photos_path(Auth::user()->id));
+			File::makeDirectory($this->photo->user_photos_path(Auth::user()->id));
 			$input['thumbnailname'] = $this->photo->makeThumbnail($input['imagename']);
 			$input['imagename'] = microtime().$input['imagename']->getClientOriginalName();
-			$image->save($this->user_photos_path(Auth::user()->id).$input['imagename']);
+			$image->save($this->photo->user_photos_path(Auth::user()->id).$input['imagename']);
 		}
 		$this->photo->fill($input);
 		$this->photo->save();
@@ -115,7 +118,13 @@ class PhotosController extends \BaseController {
 	public function photoDestroy() {
 
 		$id = Input::get('id');
-		$this->photo->find($id)->delete();
+		$photo_to_delete = $this->photo->find($id);
+		$image_to_delete = $this->photo->user_photos_path(Auth::user()->id).$photo_to_delete->imagename;
+		$thumbnail_to_delete = $this->photo->user_photos_path(Auth::user()->id).$photo_to_delete->thumbnailname;
+		
+		File::delete($image_to_delete, $thumbnail_to_delete);
+		$photo_to_delete->delete();
+		
 		return Redirect::route('users.index');
 	}
 

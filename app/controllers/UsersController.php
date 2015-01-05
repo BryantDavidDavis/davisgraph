@@ -65,10 +65,10 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		
-		$photos = $this->photo->getPhotoFileData($this->user->photos);
+		$user_to_show = $this->user->find($id);
+		$photos = $this->photo->getPhotoFileData($user_to_show->photos);
 		$background_img = $this->photo->getPopularPhoto();
-		return View::make('users.index', array('photos' => $photos, 'background_img' => $background_img));
+		return View::make('users.show', array('photos' => $photos, 'background_img' => $background_img));
 	}
 
 

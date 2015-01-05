@@ -33,8 +33,7 @@
 								<li><label>Navigate</label></li>
 								<li><a href="{{ action('SessionsController@destroy') }}">Logout</a></li>
 								<li><a href="{{ route('users.index') }}">Home</a></li>
-								<li><label>manage photos</label></li>
-								<li><a id="photos-delete" href="#">Delete Photos</a></li>
+								@yield('menu-options')
 							@else
 							<li><label>login</label></li>
 							<li><a href="{{ route('sessions.create') }}">Login</a></li>
@@ -46,8 +45,9 @@
 						<aside class="right-off-canvas-menu">
 							<ul class="off-canvas-list">
 								<li><label>users</label></li>
-								<li><a href="#">user 1 </a></li>
-								<li><a href="#">user 2 </a></li>
+								@foreach($site_users as $site_user)
+								<li><a href="{{route('users.show', array($site_user->id))}}">{{$site_user->username}}</a></li>
+								@endforeach
 							</ul>
 						</aside>
 					@endif					

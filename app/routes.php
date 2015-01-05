@@ -11,9 +11,12 @@
 |
 */
 
+View::share('site_users', User::all());
+
 Route::get('login', 'SessionsController@create');
 
 Route::group(array('before' => 'auth'), function() {
+
 	Route::post('photos/uploadProgress', array('as' => 'photos.uploadProgress', 'uses' => 'PhotosController@uploadProgress'));
 	Route::get('photos/photoDestroy', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
 	Route::get('logout', 'SessionsController@destroy');

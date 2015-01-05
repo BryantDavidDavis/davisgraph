@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('header')
-	{{HTML::style('css/users_index.css') }}
 @stop
 
 @section('menu-options')
@@ -30,5 +29,4 @@
 @stop
 
 @section('footer')
-	{{ HTML::script('js/users_index.js') }}
 @stop
