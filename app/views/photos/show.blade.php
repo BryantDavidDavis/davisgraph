@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('header')
+	{{HTML::style('css/photos_show.css')}}
 @stop
 
 @section('menu-options')
@@ -12,21 +13,18 @@
 	
 @stop
 @section('content')
-	<div class="row">
+	
+	<div class="row big-photo-row">
 		<div class="small-12 columns centered">
-			<label>{{$photo->title }}</label>
+				<div class="row overlay-row">
+					<div class="small-12 columns overlay">
+						<h3>{{$photo->title }}</h3>
+						<p>{{ $photo->description }}</p>
+					</div>
+					<img src="{{$image}}">
+				</div>
 		</div>
 	</div>	
-	<div class="row">
-		<div class="small-12 columns centered">
-			<img src="{{$image}}">
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-12 columns centered">
-			<p>{{ $photo->description }} </p>
-		</div>
-	</div>		
 
 @stop
 

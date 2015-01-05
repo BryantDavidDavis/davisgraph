@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-		<ul class="small-block-grid-2 small-centered columns medium-block-grid-4 large-block-grid-6">
+		<ul class="small-block-grid-2 small-centered medium-block-grid-4 large-block-grid-6 columns centered">
 			@if (empty($photos))
 				<p>Photo Album Empty</p>
 			@else
