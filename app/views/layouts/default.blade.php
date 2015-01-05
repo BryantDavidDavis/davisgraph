@@ -5,6 +5,7 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		{{ HTML::style('packages/vendor/foundation/css/foundation.css') }}
+		{{ HTML::style('packages/vendor/foundation-icons/foundation_icons_general/stylesheets/general_foundicons.css') }}
 		{{ HTML::style('css/main.css') }}
 		{{ HTML::script('packages/vendor/foundation/js/vendor/modernizr.js') }}
 		@yield('header')
@@ -33,6 +34,7 @@
 								<li><a href="{{ action('SessionsController@destroy') }}">Logout</a></li>
 								<li><a href="{{ route('users.index') }}">Home</a></li>
 								<li><label>manage photos</label></li>
+								<li><a id="photos-delete" href="#">Delete Photos</a></li>
 							@else
 							<li><label>login</label></li>
 							<li><a href="{{ route('sessions.create') }}">Login</a></li>

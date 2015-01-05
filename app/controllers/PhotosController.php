@@ -112,8 +112,10 @@ class PhotosController extends \BaseController {
 		//return Redirect::route('users.index');
 	}
 	
-	public function photoDestroy($id) {
-		$this->photo->destroy($id);
+	public function photoDestroy() {
+
+		$id = Input::get('id');
+		$this->photo->find($id)->delete();
 		return Redirect::route('users.index');
 	}
 

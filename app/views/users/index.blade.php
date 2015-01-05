@@ -12,7 +12,7 @@
 			
 				@foreach($photos as $photo)
 				<li>
-					<a class="th th-equal" href="{{route('photos.show', array($photo->id)) }}" style="background-image: url({{$photo->data}})">
+					<a class="th th-equal" photo-id="{{{$photo->id}}}" href="{{route('photos.show', array($photo->id)) }}" style="background-image: url({{$photo->data}})">
 						<span>{{ $photo->title }}</span>
 					</a>			
 				</li>
@@ -24,4 +24,5 @@
 @stop
 
 @section('footer')
+	{{ HTML::script('js/users_index.js') }}
 @stop

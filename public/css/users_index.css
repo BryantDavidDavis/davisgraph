@@ -8,8 +8,6 @@ li {
 	border: 1px solid black;
 }
 
-
-
 .th-equal{
     height: 9em;
     width: 100%;
@@ -25,5 +23,4 @@ li {
 	bottom: 7px;
 	left: 2px;
 	background-color: white;
-	/* background-color: grey; */
 }
