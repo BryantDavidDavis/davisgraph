@@ -11,8 +11,6 @@
 |
 */
 
-View::share('site_users', User::all());
-
 Route::get('login', 'SessionsController@create');
 
 Route::group(array('before' => 'auth'), function() {
@@ -21,10 +19,10 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('photos/photoDestroy', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
 	Route::get('logout', 'SessionsController@destroy');
 	
-	Route::resource('users', 'UsersController');
 	Route::resource('photos', 'PhotosController');	
 });
 
+Route::resource('users', 'UsersController');
 Route::resource('sessions', 'SessionsController');
 
 Route::get('/', function() {

@@ -5,6 +5,7 @@ class PhotosController extends \BaseController {
 	
 	public function __construct(Photo $photo) {
 		$this->photo = $photo;
+		View::share('site_users', User::all());
 	}
 	/**
 	 * Display a listing of the resource.

@@ -2,6 +2,13 @@
 
 class BaseController extends Controller {
 
+	
+/*
+	public function __construct(User $user) {
+		parent::__construct();
+		View::share('site_users', $user::all());
+	}
+*/
 	/**
 	 * Setup the layout used by the controller.
 	 *

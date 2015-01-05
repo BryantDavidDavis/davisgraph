@@ -6,6 +6,7 @@ class UsersController extends \BaseController {
 	public function __construct(User $user, Photo $photo) {
 		$this->user = $user;
 		$this->photo = $photo;
+		View::share('site_users', User::all());
 	}
 	
 	/**
