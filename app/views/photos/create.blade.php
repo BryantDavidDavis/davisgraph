@@ -39,7 +39,7 @@
 	</div>
 	<div class="row">
 		<div class="small-10 medium-6 large-6 small-centered columns">
-			<div class="progress success radius">
+			<div class="progress progress success radius">
 				<span style="width: 0%" class="meter"><div class="percent text-center"></div></span>
 			</div>
 		</div>
