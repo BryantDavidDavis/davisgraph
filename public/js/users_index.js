@@ -1,8 +1,8 @@
-var deletebutton = $("<a class='item'><i class='foundicon-trash'></i></a>").css({"position": "absolute", "top": "10px", "right": "5px", "color": "red"});
+var deletebutton = $("<a class='item'><i class='fi-trash'></i></a>").css({"position": "absolute", "top": "10px", "right": "5px", "color": "red"});
 
 var finishedbutton = $("<ul class='small-block-grid-2 small-centered medium-block-grid-4 large-block-grid-6 columns centered'><li><a id='finished-button' class='button small info'>Finished</a></li></ul>");
 
-var rotatebutton = $("<a class='item'><i class='foundicon-home'></i></a>").css({"position": "absolute", "top": "10px", "right": "5px", "color": "aluminum"});
+var rotatebutton = $("<a class='item'><i class='fi-loop'></i></a>").css({"position": "absolute", "top": "10px", "right": "5px", "color": "aluminum"});
 
 
 var displayButton = function(button) {

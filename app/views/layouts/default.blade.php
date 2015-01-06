@@ -5,7 +5,7 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		{{ HTML::style('stylesheets/app.css') }}
-		{{ HTML::style('packages/vendor/foundation-icons/foundation_icons_general/stylesheets/general_foundicons.css') }}
+		{{ HTML::style('packages/vendor/foundation-icon-fonts/foundation-icons.css') }}
 		{{ HTML::style('css/main.css') }}
 		{{ HTML::script('packages/vendor/foundation/js/vendor/modernizr.js') }}
 		@yield('header')
