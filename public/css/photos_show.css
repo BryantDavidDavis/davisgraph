@@ -21,8 +21,10 @@
 .photo-show-img {
 	/*if the picture is wider than it is long, we need to set min-width to 90 percent, but if it is longer than it is wide than we set the min-height to 90 */
 	/* min-width: 90%; */
+/*
 	dispay: table-cell;
 	vertical-align: middle;
+*/
 	max-width: 90%;
 	max-height: 90%;
 }
