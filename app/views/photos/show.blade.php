@@ -14,19 +14,30 @@
 @stop
 @section('content')
 	
+<!--
 	<div class="row big-photo-row">
 		<div class="small-12 columns centered">
 				<div class="row overlay-row">
 					<div class="small-12 columns overlay">
-						<h3>{{$photo->title }}</h3>
-						<p>{{ $photo->description }}</p>
+-->
+					<!-- </div> -->
+					<div class="row">
+						<div class="small-12 small-centered text-center columns">
+							<img class="photo-show-img" src="{{$image}}">
+						</div>
 					</div>
-					<img src="{{$image}}">
+					
+					
+<!--
 				</div>
 		</div>
 	</div>	
+-->
 
 @stop
 
 @section('footer')
+
+	{{HTML::script('js/photos_show.js')}}
+
 @stop

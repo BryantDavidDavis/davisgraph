@@ -1,3 +1,4 @@
+/*
 .big-photo-row {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
@@ -15,4 +16,10 @@
 
 .overlay h3, .overlay p{
 	color: white;
+}
+*/
+.photo-show-img {
+	
+	max-width: 90%;
+	max-height: 90%;
 }
