@@ -54,7 +54,7 @@
 						</aside>
 					@endif					
 					<section class="main-section">
-						<!-- <p>Lost in Roatan</p> -->
+						
 		@yield('content')
 					</section>
 					<a class="exit-off-canvas"></a>			

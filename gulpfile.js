@@ -23,7 +23,11 @@ gulp.task('sass', function() {
 	.pipe(gulp.dest('public/stylesheets'));
 });
 
-
+gulp.task('watch', function() {
+	gulp.watch(srcSassDir + '/**/*.scss', ['compass']);
+	gulp.watch(srcJSDir + '/**/*.js', ['js']);
+	gulp.watch('app/**/*.php', ['phpunit']);
+});
 
 
 
@@ -81,10 +85,4 @@ gulp.task('phpunit', function() {
 	.pipe(phpunit('./vendor/bin/phpunit'));
 });
 */
-
-gulp.task('watch', function() {
-	gulp.watch(srcSassDir + '/**/*.scss', ['compass']);
-	gulp.watch(srcJSDir + '/**/*.js', ['js']);
-	gulp.watch('app/**/*.php', ['phpunit']);
-});
 

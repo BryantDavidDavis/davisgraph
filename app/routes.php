@@ -17,6 +17,7 @@ Route::group(array('before' => 'auth'), function() {
 
 	Route::post('photos/uploadProgress', array('as' => 'photos.uploadProgress', 'uses' => 'PhotosController@uploadProgress'));
 	Route::get('photos/photoDestroy', array('as' => 'photos.photoDestroy', 'uses' => 'PhotosController@photoDestroy'));
+	Route::get('photos/photoRotate', array('as' => 'photos.photoRotate', 'uses' => 'PhotosController@photoRotate'));
 	Route::get('logout', 'SessionsController@destroy');
 	
 	Route::resource('photos', 'PhotosController');	

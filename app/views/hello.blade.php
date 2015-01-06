@@ -8,5 +8,4 @@
 @stop
 
 @section('footer')
-	{{ HTML::script('packages/vendor/foundation/js/foundation.offcanvas.js') }}
 @stop

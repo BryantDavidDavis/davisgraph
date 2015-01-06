@@ -103,30 +103,29 @@ class PhotosController extends \BaseController {
 		//
 	}
 	
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id) {
-		//echo "We are here";
-		//die;
-		//$this->photo->delete($id);
-		//return Redirect::route('users.index');
-	}
-	
 	public function photoDestroy() {
 
 		$id = Input::get('id');
 		$photo_to_delete = $this->photo->find($id);
 		$image_to_delete = $this->photo->user_photos_path(Auth::user()->id).$photo_to_delete->imagename;
 		$thumbnail_to_delete = $this->photo->user_photos_path(Auth::user()->id).$photo_to_delete->thumbnailname;
-		
 		File::delete($image_to_delete, $thumbnail_to_delete);
 		$photo_to_delete->delete();
 		
 		return Redirect::route('users.index');
+	}
+	
+	public function photoRotate() {
+		$id = Input::get('id');
+		$photo_to_rotate = $this->photo->find($id);
+		$image_to_rotate = $this->photo->user_photos_path(Auth::user()->id).$photo_to_rotate->imagename;
+		$thumbnail_to_rotate = $this->photo->user_photos_path(Auth::user()->id).$photo_to_rotate->thumbnailname;
+		Image::make($image_to_rotate)->rotate(90)->save($image_to_rotate);
+		$thumbnail = Image::make($thumbnail_to_rotate)->rotate(90);
+		$thumbnail->save($thumbnail_to_rotate);
+		return Response::json($thumbnail->encode('data-url'));
+
+		//return Redirect::route('users.index');
 	}
 
 }
