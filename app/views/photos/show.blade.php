@@ -8,7 +8,7 @@
 	@if(Auth::user()->photos->contains($photo->id))
 		<li><label>manage photos</label></li>
 		<li><a href="{{ route('photos.create')}}">Add A Photo</a></li>
-		<li><a id="photos-rotate" href="#">Rotate Photo</a></li>	
+		<li><a id="photos-edit" href="#">Edit Photo Details</a></li>	
 	@endif
 	
 @stop
