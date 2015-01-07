@@ -20,7 +20,7 @@
 				@foreach($photos as $photo)
 				<li>
 					<a class="th th-equal" photo-id="{{{$photo->id}}}" href="{{route('photos.show', array($photo->id)) }}" style="background-image: url({{$photo->data}})">
-						<span>{{ $photo->title }}</span>
+						<!-- <span>{{ $photo->title }}</span> -->
 					</a>			
 				</li>
 				@endforeach
