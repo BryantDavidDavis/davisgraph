@@ -9,9 +9,14 @@ var bindForm = function(modelCol, currentText, photo_id) {
 	
 };
 
-var originalDiv = function(newStuff, photo_id) {
-	return '<div class="row"><div class="small-12 medium-10 large-10 small-centered text-center columns"><h3 photo-id="'+photo_id+'" model-col="title"><span>'+newStuff+'</span></h3></div></div>';
-	//return "hello";
+var originalDiv = function(newStuff, photo_id, modelcol) {
+	var newdiv;
+	if(modelcol === "title") {
+		newdiv = '<h3 photo-id="'+photo_id+'" model-col="title"><span>'+newStuff+'</span></h3>';
+	} else {
+		newdiv = '<p photo-id="'+photo_id+'" model-col="description"><span>'+newStuff+'</span></p>';
+	}
+	return '<div class="row"><div class="small-12 medium-10 large-10 small-centered text-center columns">'+newdiv+'</div></div>';
 };
 
 var photo_id = $('img').attr('photo-id');
@@ -37,10 +42,8 @@ $('body').on('click', '.model-col-update-ajax', function(e) {
 		url: "/photos/updateField",
 		type: "post",
 		data: $(this).closest('form').serialize(),
-		// data: {id: photo_id, fieldname: modelCol, content: newText},
 		success: function(data) {
-			var newStuff = $.parseJSON(data);
-			$('form').replaceWith(originalDiv(newStuff, photo_id));	
+			$('form').replaceWith(originalDiv(data.newcontent, photo_id, data.modelcol));	
 		},
 		error: function(xhr) {
 			alert(xhr.responseText);

@@ -129,12 +129,13 @@ class PhotosController extends \BaseController {
 	}
 	
 	public function updateField() {
+		
 		$field_to_update = Input::get('fieldname');
 		$photo = $this->photo->find(Input::get('id'));
 		$photo[$field_to_update] = Input::get('content');
 		$photo->save();
 		
-		return Response::json($photo[$field_to_update]);
+		return Response::json(array("newcontent" => $photo[$field_to_update], "modelcol" => $field_to_update));
 	}
 
 }
