@@ -20,6 +20,8 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('photos/photoRotate', array('as' => 'photos.photoRotate', 'uses' => 'PhotosController@photoRotate'));
 	Route::get('logout', 'SessionsController@destroy');
 	
+	Route::post('photos/updateField', array('as' => 'photos.updateField', 'uses' => 'PhotosController@updateField'));
+	
 	Route::resource('photos', 'PhotosController');	
 });
 
