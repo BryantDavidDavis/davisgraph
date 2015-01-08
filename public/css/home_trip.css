@@ -1,27 +1,37 @@
+.trip-intro-row {
+	height: 90vh;
+	margin-top: -20px;
+	
+}
+
 .trip-photo-row  {
-	height: 400px;
+	height: 50vh;
 	/* border: 1px solid black; */
 	min-width: 100%;
-	/* background-color: #9595d1; */
+	
 	/* opacity: 0.4; */
 }
 
 .columns {
-	border: 1px solid green;
+	/* border: 1px solid green; */
 }
-/*
 .trip-photo-row:nth-child(odd) {
-	background: #f9d1d1;
+	background: rgba(126, 127, 128, 0.5);
 
 }
 
 .trip-photo-row:nth-child(even) {
-	background: #cbd7f3;
+	background: rgba(86, 86, 86, 0.5);
 
 }
-*/
 
 .trip-photo-row img {
 	
-	/* transform: translateY(100px); */
+	transform: translateY(100px);
+}
+
+.trip-photo-row .fi-comment {
+	padding-top: 10px;
+	color: #8ba2d8;
+	transform: translateY(100px);
 }
