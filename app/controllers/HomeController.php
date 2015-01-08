@@ -14,10 +14,16 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showWelcome()
-	{
-		return View::make('hello');
+	
+	public function __construct() {
+		View::share('site_users', User::all());
+	}
+	
+	public function showWelcome() {
+		$photo = new Photo();
+		$background_img = $photo->getPopularPhoto();
+	
+		return View::make('hello', array('background_img' => $background_img));
 	}
 
 }

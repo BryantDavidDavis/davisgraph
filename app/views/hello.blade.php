@@ -1,7 +1,15 @@
 @extends('layouts.default')
 
 @section('header')
-	<link href='http://fonts.googleapis.com/css?family=Pirata+One' rel='stylesheet' type='text/css'>
+@stop
+
+@section('menu-options')
+	@if(Auth::check())
+		<li><label>manage photos</label></li>
+		<li><a href="{{ route('photos.create')}}">Add A Photo</a></li>
+		<li><a id="photos-delete" href="{{route('users.index')}}">Delete Photos</a></li>
+
+	@endif
 @stop
 
 @section('content')

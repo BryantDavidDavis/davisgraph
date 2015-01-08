@@ -27,10 +27,4 @@ Route::group(array('before' => 'auth'), function() {
 Route::resource('users', 'UsersController');
 Route::resource('sessions', 'SessionsController');
 
-Route::get('/', function() {
-	$photo = new Photo();
-	$background_img = $photo->getPopularPhoto();
-	
-	return View::make('hello', array('background_img' => $background_img));
-});
-
+Route::get('/', 'HomeController@showWelcome');
