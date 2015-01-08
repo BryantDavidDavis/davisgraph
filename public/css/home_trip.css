@@ -1,4 +1,4 @@
-.trip-photo-row {
+.trip-photo-row  {
 	height: 400px;
 	/* border: 1px solid black; */
 	min-width: 100%;
@@ -6,6 +6,9 @@
 	/* opacity: 0.4; */
 }
 
+.columns {
+	border: 1px solid green;
+}
 /*
 .trip-photo-row:nth-child(odd) {
 	background: #f9d1d1;
@@ -20,5 +23,5 @@
 
 .trip-photo-row img {
 	
-	transform: translateY(100px);
+	/* transform: translateY(100px); */
 }

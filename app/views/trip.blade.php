@@ -15,8 +15,13 @@
 @section('content')
 	@foreach($trip_photos as $trip_photo)
 		<div class="row trip-photo-row">
-			<div class="small-12 columns">
+			<div class="small-6 columns">
 				<a href="{{route('photos.show', array($trip_photo->id)) }}"><img photo-id="{{$trip_photo->id}}" src="{{$trip_photo->data}}"></a>
+			</div>
+			<div class="small-6 columns text-align-left">
+				<p>Here are some comments</p>
+				<p>Here are more comments</p>
+				<p>Here are even more interesting comments, they just get better all the time</p>
 			</div>
 		</div>
 
