@@ -137,5 +137,32 @@ class PhotosController extends \BaseController {
 		
 		return Response::json(array("newcontent" => $photo[$field_to_update], "modelcol" => $field_to_update));
 	}
+	
+	public function photoToggleTripShow() {
+		$id = Input::get('id');
+		$photo = $this->photo->find($id);
+		$showme = Input::get('showme');
+		if($showme === 'true') {
+			$showme = 1;
+		} else {
+			$showme = 0;
+		}
+		$photo->showme = $showme;
+		$photo->save();
+		return Response::json($photo->showme);
+	}
+	
+	public function showTripStatus() {
+		$ids = Input::get('ids');
+		//return Response::json($ids);
+		$showme_array = array();
+		$i = 0;
+		foreach($ids as $value) {
+			$showme_array[$i]['photo_id'] = $value;
+			$showme_array[$i]['status'] = $this->photo->find($value)->showme;
+			$i++;
+		}
+		return Response::json($showme_array);
+	}
 
 }

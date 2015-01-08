@@ -9,6 +9,7 @@
 	<li><a href="{{ route('photos.create')}}">Add A Photo</a></li>
 	<li><a id="photos-delete" href="{{route('users.index')}}">Delete Photos</a></li>
 	<li><a id="photos-rotate" href="#">Rotate Photos</a></li>
+	<li><a id="photos-show-on-trip" href="#">Add Photos to Trip</a></li>
 @stop
 
 @section('content')
