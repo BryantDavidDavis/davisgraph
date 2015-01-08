@@ -2,6 +2,7 @@
 	height: 90vh;
 	margin-top: -20px;
 	
+	
 }
 
 .trip-photo-row  {
@@ -31,7 +32,14 @@
 }
 
 .trip-photo-row .fi-comment {
-	padding-top: 10px;
+	position: relative;
+	top: 10vh;
 	color: #8ba2d8;
 	transform: translateY(100px);
+}
+
+.intro-quote {
+	position: relative;
+	top: 20vh;
+	font-size: 2rem;
 }

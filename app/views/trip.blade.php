@@ -15,7 +15,8 @@
 @section('content')
 		<div class="row">
 			<div class="small-12 columns trip-intro-row">
-				Once upon a time, a family went to Roatan, Honduras...
+				<blockquote class="intro-quote text-left">Hey Guys, We're going to Roatan!  The scuba diving is great there, and you'll love the condo...<cite>Steven Davis, December 15th, 2014</cite></blockquote>
+
 			</div>
 		</div>
 	@foreach($trip_photos as $trip_photo)
