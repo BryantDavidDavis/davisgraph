@@ -29,8 +29,9 @@
 					</nav>
 					<aside class="left-off-canvas-menu">
 						<ul class="off-canvas-list">
+							<li><label>Navigate</label></li>
+							<li><a href="#">View The Trip</a></li>
 							@if(Auth::check())
-								<li><label>Navigate</label></li>
 								<li><a href="{{ action('SessionsController@destroy') }}">Logout</a></li>
 								<li><a href="{{ route('users.index') }}">Home</a></li>
 								@yield('menu-options')
