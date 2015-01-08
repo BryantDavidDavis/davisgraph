@@ -128,7 +128,7 @@ $('#photos-show-on-trip').on('click', function(e) {
 	});	
 	
 	$('.main-section').on('click', '#finished-button', function(e) {
-		$(".th-equal").off().find('.item').remove();
+		$(".th-equal").off().find('.show-on-trip-toggle').remove();
 		$('.main-section').find('#finished-button').closest('ul').remove();
 	});
 });
