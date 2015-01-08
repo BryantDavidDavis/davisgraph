@@ -2,19 +2,6 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-	
 	public function __construct() {
 		View::share('site_users', User::all());
 	}
@@ -22,8 +9,10 @@ class HomeController extends BaseController {
 	public function showWelcome() {
 		$photo = new Photo();
 		$background_img = $photo->getPopularPhoto();
-	
-		return View::make('hello', array('background_img' => $background_img));
+		$trip_photos = $photo->where('showme', 1)->get();
+		$trip_photos = $photo->getPhotoFileData($trip_photos);
+
+		return View::make('trip', array('background_img' => $background_img, 'trip_photos' => $trip_photos));
 	}
 
 }
