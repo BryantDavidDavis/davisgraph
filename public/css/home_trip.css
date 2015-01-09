@@ -1,3 +1,22 @@
+/*
+@-webkit-keyframes appear {
+  0%   { margin-left: 0; }
+  100% { margin-left: 5vh; }
+}
+@-moz-keyframes appear {
+  0%   { margin-left: 0; }
+  100% { margin-left: 5vh; }
+}
+@-o-keyframes appear {
+  0%   { margin-left: 0; }
+  100% { margin-left: 5vh; }
+}
+@keyframes appear {
+  0%   { margin-left: 0; }
+  100% { margin-left: 5vh; }
+}
+*/
+
 .trip-intro-row {
 	height: 90vh;
 	margin-top: -20px;
@@ -9,6 +28,7 @@
 	height: 50vh;
 	/* border: 1px solid black; */
 	min-width: 100%;
+	overflow: hidden;
 	
 	/* opacity: 0.4; */
 }
@@ -27,8 +47,7 @@
 }
 
 .trip-photo-row img {
-	
-	transform: translateY(100px);
+	transform: translateY(100px); 
 }
 
 .trip-photo-row .fi-comment {
