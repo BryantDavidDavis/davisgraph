@@ -5,6 +5,9 @@
 
 @section('content')
 	
+	<div class="row">
+		<div class="small-10 small-centered columns signin-column">
+			<div class="panel radius signin">
 	
 	<div class="row">
 		<div class="small-12 small-centered medium-12 large-10 large-centered columns">
@@ -34,6 +37,9 @@
 	    <div class="small-6 small-centered medium-4 columns">
 			{{ Form::submit('Sign Up', ['class' => 'button tiny']) }}
 	    </div>
+	</div>
+			</div>
+		</div>
 	</div>
 	{{ Form::close() }}
 @stop

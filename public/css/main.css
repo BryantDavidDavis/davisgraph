@@ -24,3 +24,7 @@ html, body, body > .page {
 	z-index: 100;
 	margin-top: 20px;
 }
+
+.panel.signin {
+	opacity: 0.8;
+}
