@@ -5,6 +5,7 @@
     "foundation": "~5.5.0",
     "jquery-form": "~3.46.0",
     "foundation-icon-fonts": "*",
-    "stellar": "~0.6.2"
+    "stellar": "~0.6.2",
+    "iscroll": "~5.1.3"
   }
 }

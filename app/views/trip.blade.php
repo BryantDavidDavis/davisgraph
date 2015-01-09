@@ -2,6 +2,7 @@
 
 @section('header')
 	{{HTML::style('css/home_trip.css')}}
+	{{HTML::style('css/trip_parallax.css')}}
 @stop
 
 @section('menu-options')
@@ -22,7 +23,7 @@
 	@foreach($trip_photos as $trip_photo)
 		<div class="row trip-photo-row">
 			<div class="small-7 columns text-center">
-				<a href="{{route('photos.show', array($trip_photo->id)) }}"><img photo-id="{{$trip_photo->id}}" src="{{$trip_photo->data}}"></a>
+				<a href="{{route('photos.show', array($trip_photo->id)) }}" data-stellar-ration='2'><img photo-id="{{$trip_photo->id}}" src="{{$trip_photo->data}}"></a>
 			</div>
 			<div class="small-5 columns text-left">
 				<i class='fi-comment'>
@@ -38,4 +39,7 @@
 @stop
 
 @section('footer')
+	{{HTML::script('packages/vendor/stellar/jquery.stellar.min.js')}}
+	{{HTML::script('packages/vendor/iscroll/build/iscroll-lite.js')}}
+	{{HTML::script('js/trip_parallax.js')}}
 @stop
