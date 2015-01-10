@@ -7,9 +7,8 @@
 
 .trip-photo-row  {
 	height: 50vh;
-	/* border: 1px solid black; */
+
 	min-width: 100%;
-	overflow: auto;
 	
 	/* opacity: 0.4; */
 }
@@ -17,31 +16,15 @@
 .trip-photo-row .columns {
 	top: 5vh;
 	bottom: 5vh;
+	/* border: 1px solid black; */
 }
-.trip-photo-row:nth-child(odd) {
-	background: rgba(126, 127, 128, 0.5);
-
-}
-
-.trip-photo-row:nth-child(even) {
-	background: rgba(86, 86, 86, 0.5);
-
-}
-
 
 .trip-photo-row img {
 	/* position: relative; */
 	/* margin-top: 20px; */
 	max-width: 100%;
 	max-height: 100%;
-	/* transform: scale(1.5,1.5); */ 
-}
-
-.trip-photo-row .fi-comment {
-	position: relative;
-	/* top: 10vh; */
-	color: #8ba2d8;
-	/* transform: translateY(100px); */
+	border: 2px solid white; 
 }
 
 .intro-quote {
