@@ -19,6 +19,10 @@ var originalDiv = function(newStuff, photo_id, modelcol) {
 	return '<div class="row"><div class="small-12 medium-10 large-10 small-centered text-center columns">'+newdiv+'</div></div>';
 };
 
+var commentDiv = function(newComment) {
+	return '<div class="row comment-row"><div class="small-12 medium-10 large-10 small-centered text-center columns"><p photo-id="'+newComment+'" model-col="comment"><span>{{$comment->comment}}</span></p></div></div>';	
+};
+
 var photo_id = $('img').attr('photo-id');
 
 $('#photo-update').on('click', function(e) {
@@ -56,7 +60,7 @@ $('#comment-submit').on('click', function(e) {
 	url: "/photos/store",
 	data: $(this).closest('form').serialize(),
 	success: function(data) {
-		alert('lets update the dom');
+		$('.comment-row').last().after(commentDiv(data.comment));
 	},
 	error: function(xhr) {
 		alert(xhr.responseText);

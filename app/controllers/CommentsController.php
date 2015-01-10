@@ -35,11 +35,9 @@ class CommentsController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
-		$this->comment->photo_id = $input['photo_id'];
-		$this->comment->user_id = $input['user_id'];
-		$this->comment->comment = $input['comment'];
+		$this->comment->fill($input);
 		$this->comment->save();
-		Return Response::json($this->comment);
+		return Response::json($this->comment);
 	}
 
 
