@@ -29,13 +29,13 @@
 										<a photo-id="{{{$trip_photo->id}}}" href="{{route('photos.show', array($trip_photo->id)) }}"><img src="{{$trip_photo->data}}"></a>
 									</div>				
 									<div class="small-12 columns text-left">
-								{{$trip_photo->description}}
+										<h5 class="subheader">{{$trip_photo->description}}</h5>
 									</div>									
 								</div>
 							</div>
 							<div class ="small-12 medium-6 columns">
-								<h3>some comments</h3>
-								<h3>some more comments</h3>
+								<h5 class="subheader">some comments</h5>
+								<h5 class="subheader">some more comments</h5>
 							</div>
 						</div>
 					</div>
