@@ -92,6 +92,7 @@ $('#photos-show-on-trip').on('click', function(e) {
 		success: function(data) {
 			console.log('the show Trip status success function should work now, so why is it not iterating through the results');
 			$.each(data, function() {
+				console.log(this.photo_id + this.status);
 				var my_thumbnail = $("[photo-id='"+this.photo_id+"']");
 				if(this.status === "1") {
 					console.log('box for photo number: '+this.photo_id+' should be checked');
