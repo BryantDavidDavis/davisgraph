@@ -23,11 +23,19 @@
 				<div class="small-12 columns">
 					<div class="panel radius">
 						<div class="row small-collapse">
-							<div class="small-12 columns text-left">
-									<a photo-id="{{{$trip_photo->id}}}" href="{{route('photos.show', array($trip_photo->id)) }}"><img src="{{$trip_photo->data}}"></a>
-							</div>				
-							<div class="small-12 columns text-left">
+							<div class="small-12 medium-6 columns">
+								<div class="row small-collapse">
+									<div class="small-12 columns text-left">
+										<a photo-id="{{{$trip_photo->id}}}" href="{{route('photos.show', array($trip_photo->id)) }}"><img src="{{$trip_photo->data}}"></a>
+									</div>				
+									<div class="small-12 columns text-left">
 								{{$trip_photo->description}}
+									</div>									
+								</div>
+							</div>
+							<div class ="small-12 medium-6 columns">
+								<h3>some comments</h3>
+								<h3>some more comments</h3>
 							</div>
 						</div>
 					</div>
