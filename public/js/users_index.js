@@ -90,7 +90,7 @@ $('#photos-show-on-trip').on('click', function(e) {
 		type: "get",
 		data: {ids: idset},
 		success: function(data) {
-			consol.log('the show Trip status success function should work now, so why is it not iterating through the results');
+			console.log('the show Trip status success function should work now, so why is it not iterating through the results');
 			$.each(data, function() {
 				var my_thumbnail = $("[photo-id='"+this.photo_id+"']");
 				if(this.status === "1") {
