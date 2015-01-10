@@ -20,7 +20,8 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('photos/photoRotate', array('as' => 'photos.photoRotate', 'uses' => 'PhotosController@photoRotate'));
 	Route::post('photos/updateField', array('as' => 'photos.updateField', 'uses' => 'PhotosController@updateField'));
 	Route::get('photos/photoToggleTripShow', array('as' => 'photos.photoToggleTripShow', 'uses' => 'PhotosController@photoToggleTripShow'));
-	Route::get('photos/showTripStatus', array('as' => 'photos.showTripStatus', 'uses' => 'PhotosController@showTripStatus'));	
+	Route::get('photos/showTripStatus', array('as' => 'photos.showTripStatus', 'uses' => 'PhotosController@showTripStatus'));
+	Route::post('comments/storeComment', array('as' => 'comments.storeComment', 'uses' => 'CommentsController@storeComment'));	
 	Route::resource('photos', 'PhotosController');
 	Route::resource('comments', 'CommentsController');	
 });

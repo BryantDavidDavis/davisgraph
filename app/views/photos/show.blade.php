@@ -31,7 +31,7 @@
 							<h3 photo-id="{{$photo->id}}" model-col="title"><span>{{$photo->title}}</span></h3>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row description-row">
 						<div class="small-12 medium-10 large-10 small-centered text-center columns">
 							<p photo-id="{{$photo->id}}" model-col="description"><span>{{$photo->description}}</span></p>
 						</div>

@@ -19,8 +19,8 @@ var originalDiv = function(newStuff, photo_id, modelcol) {
 	return '<div class="row"><div class="small-12 medium-10 large-10 small-centered text-center columns">'+newdiv+'</div></div>';
 };
 
-var commentDiv = function(newComment) {
-	return '<div class="row comment-row"><div class="small-12 medium-10 large-10 small-centered text-center columns"><p photo-id="'+newComment+'" model-col="comment"><span>{{$comment->comment}}</span></p></div></div>';	
+var commentDiv = function(data) {
+	return '<div class="row comment-row"><div class="small-12 medium-10 large-10 small-centered text-center columns"><p photo-id="'+data.photo_id+'" model-col="comment"><span>'+data.comment+'</span></p></div></div>';	
 };
 
 var photo_id = $('img').attr('photo-id');
@@ -57,13 +57,20 @@ $('body').on('click', '.model-col-update-ajax', function(e) {
 
 $('#comment-submit').on('click', function(e) {
 	e.preventDefault();
-	url: "/photos/store",
-	data: $(this).closest('form').serialize(),
-	success: function(data) {
-		$('.comment-row').last().after(commentDiv(data.comment));
-	},
-	error: function(xhr) {
-		alert(xhr.responseText);
-	}
-}
+	$.ajax({
+		url: "/comments/storeComment",
+		type: "post",
+		data: $(this).closest('form').serialize(),
+		success: function(data) {
+			if($('.comment-row').length) {
+				$('.comment-row').last().after(commentDiv(data));	
+			} else {
+				$('.description-row').last().after(commentDiv(data));
+			}
+		},
+		error: function(xhr) {
+			alert(xhr.responseText);
+		}		
+	});
+});
 	

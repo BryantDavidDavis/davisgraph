@@ -34,12 +34,14 @@ class CommentsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
+	}
+
+	public function storeComment() {
 		$input = Input::all();
 		$this->comment->fill($input);
 		$this->comment->save();
 		return Response::json($this->comment);
 	}
-
 
 	/**
 	 * Display the specified resource.
