@@ -19,7 +19,7 @@ class AddCommentsTable extends Migration {
 			$table->integer('photo_id')->unsigned();
 			$table->text('comment');
 			$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-			$table->foreign('photo_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('photo_id')->references('id')->on('photos')->onUpdate('cascade')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

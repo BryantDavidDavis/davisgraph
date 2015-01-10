@@ -36,6 +36,29 @@
 							<p photo-id="{{$photo->id}}" model-col="description"><span>{{$photo->description}}</span></p>
 						</div>
 					</div>
+					@foreach($photo->comments as $comment)
+					<div class="row">
+						<div class="small-12 medium-10 large-10 small-centered text-center columns">
+							<p photo-id="{{$photo->id}}" model-col="comment"><span>{{$comment}}</span></p>
+						</div>
+					</div>
+					@endforeach
+					{{ Form::open(['route' => 'comments.store', 'id' => 'comment-create-form']) }}
+					{{ Form::hidden('user_id', Auth::user()->id) }}
+					{{ Form::hidden('photo_id', $photo->id)}}
+					<div class="row">
+						<div class="small-10 medium-6 large-6 small-centered columns">
+							{{ Form::label('comment', 'Add a Comment') }}
+							{{ Form::textarea('comment') }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-10 medium-6 large-6 small-centered columns">	
+							<input type="submit" value="submit!" id="comment-submit" class="button postfix"/>
+						</div>
+					</div>
+					{{ Form::close()}}
+
 					
 <!--
 				</div>

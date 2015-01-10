@@ -6,7 +6,7 @@ class Comment extends Eloquent {
 	
 	protected $table = 'comments';
 	
-	protected $fillable = ['comment'];
+	protected $fillable = array('comment', 'user_id', 'photo_id');
 	
 	public function user() {
 		return $this->belongsTo('User');

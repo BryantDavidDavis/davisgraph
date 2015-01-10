@@ -1,7 +1,11 @@
 <?php
 
 class CommentsController extends \BaseController {
-
+	protected $comment;
+	
+	public function __construct(Comment $comment) {
+		$this->comment = $comment;
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -29,9 +33,13 @@ class CommentsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store() {
+		$input = Input::all();
+		$this->comment->photo_id = $input['photo_id'];
+		$this->comment->user_id = $input['user_id'];
+		$this->comment->comment = $input['comment'];
+		$this->comment->save();
+		Return Response::json($this->comment);
 	}
 
 

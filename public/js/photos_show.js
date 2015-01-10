@@ -49,6 +49,17 @@ $('body').on('click', '.model-col-update-ajax', function(e) {
 			alert(xhr.responseText);
 		}
 	});
-	
-});	
+});
+
+$('#comment-submit').on('click', function(e) {
+	e.preventDefault();
+	url: "/photos/store",
+	data: $(this).closest('form').serialize(),
+	success: function(data) {
+		alert('lets update the dom');
+	},
+	error: function(xhr) {
+		alert(xhr.responseText);
+	}
+}
 	
