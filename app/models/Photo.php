@@ -36,6 +36,10 @@ class Photo extends Eloquent {
 		return $this->belongsTo('User');
 	}
 	
+	public function comments() {
+		return $this->hasMany('Comment');
+	}
+	
 	public function user_photos_path($id) {
 		$username = User::find($id)->username;
 		return storage_path() . '/uploads/'.$username.'/';

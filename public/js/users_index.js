@@ -93,6 +93,7 @@ $('#photos-show-on-trip').on('click', function(e) {
 			$.each(data, function() {
 				var my_thumbnail = $("[photo-id='"+this.photo_id+"']");
 				if(this.status === "1") {
+					console.log('box for photo number: '+this.photo_id+' should be checked');
 					my_thumbnail.find('.show-on-trip-toggle').prop('checked', true);
 				} else {
 					my_thumbnail.find('.show-on-trip-toggle').prop('checked', false);
