@@ -10,7 +10,10 @@ class HomeController extends BaseController {
 		$photo = new Photo();
 		$background_img = $photo->getPopularPhoto();
 		$trip_photos = $photo->where('showme', 1)->get();
-		$trip_photos = $photo->getPhotoFileData($trip_photos);
+		foreach($trip_photos as $trip_photo) {
+			$trip_photo->comments = $trip_photo->comments()->get();
+		}
+		$trip_photos->photos = $photo->getPhotoFileData($trip_photos);
 
 		return View::make('trip', array('background_img' => $background_img, 'trip_photos' => $trip_photos));
 	}
