@@ -29,13 +29,16 @@
 										<a photo-id="{{{$trip_photo->id}}}" href="{{route('photos.show', array($trip_photo->id)) }}"><img src="{{$trip_photo->data}}"></a>
 									</div>				
 									<div class="small-12 columns text-left">
-										<h5 class="subheader">{{$trip_photo->description}}</h5>
+										<label>Uploaded by: {{{$trip_photo->username}}}</label><h6 class="subheader">{{{$trip_photo->description}}}</h6>
 									</div>									
 								</div>
 							</div>
 							<div class ="small-12 medium-6 columns">
 								@foreach($trip_photo->comments as $comments)
-								<h5 class="subheader">{{$comments->comment}}</h5>
+								<div class="panel radius">
+								<h6 class="subheader">{{{$comments->comment}}}</h6>
+								<h6 class='subheader'>--{{{$comments->user->username}}}</h6>
+								</div>
 								@endforeach
 							</div>
 						</div>

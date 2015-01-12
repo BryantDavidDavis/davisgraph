@@ -48,7 +48,7 @@
 								<li><label>users</label></li>
 								@foreach($site_users as $site_user)
 								@if ($site_user->id != Auth::user()->id)
-								<li><a href="{{route('users.show', array($site_user->id))}}">{{$site_user->username}}</a></li>
+								<li><a href="{{route('users.show', array($site_user->id))}}">{{{$site_user->username}}}</a></li>
 								@endif
 								@endforeach
 							</ul>
