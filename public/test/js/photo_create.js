@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$(".meter"),o=$(".percent");$("form").ajaxForm({beforeSend:function(){var e="0%";o.html(e)},uploadProgress:function(t,n,r,c){var i=c+"%";e.width(i),o.html(i)},success:function(){var t="100%...redirecting to home";e.width(t),o.html(t)},complete:function(){window.location.href="/users/"}})});

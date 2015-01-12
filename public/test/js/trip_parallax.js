@@ -1,0 +1,1 @@
+!function(){var r=navigator.userAgent,t=/WebKit/.test(r)&&/Mobile/.test(r);t&&$("html").addClass("mobile"),$(function(){var r;t?(r=new iScroll("wrapper"),$("#scroller").stellar({scrollProperty:"transform",positionProperty:"transform",horizontalScrolling:!1,verticalOffset:150})):$.stellar({horizontalScrolling:!1,verticalOffset:150})})}();

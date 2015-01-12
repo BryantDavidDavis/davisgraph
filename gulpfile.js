@@ -16,11 +16,27 @@ var lr = require('tiny-lr');
 server = lr();
 //var gulpcompass = require('gulp-compass');
 
+//var jsSrcDir = '/public/';
+//var jsDestDir = 
+
 gulp.task('sass', function() {
 	return gulp.src('public/packages/vendor/foundation/scss/app.scss')
 	.pipe(sass({style: 'expanded'}))
 	.pipe(minifycss())
 	.pipe(gulp.dest('public/stylesheets'));
+});
+
+gulp.task('my_scripts', function() {
+	return gulp.src('public/js/*.js')
+	.pipe(uglify({mangle: true, }))
+	.pipe(gulp.dest('public/test/js'));
+});
+
+gulp.task('foundation_scripts', function() {
+	return gulp.src(['public/packages/vendor/foundation/js/vendor/jquery.js', 'public/packages/vendor/foundation/js/fastclick.js', 'public/packages/vendor/foundation/js/foundation.min.js'])
+	.pipe(concat('dependencies.js'))
+	.pipe(uglify({mangle: true, }))
+	.pipe(gulp.dest('public/js/'));
 });
 
 gulp.task('watch', function() {
