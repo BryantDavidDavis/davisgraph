@@ -75,8 +75,8 @@ class Photo extends Eloquent {
 			$details->id = $my_photo->id;
 			$details->title = $my_photo->title;
 			$details->description = $my_photo->description;
-			//$details->username = $my_photo->user->username;
-			
+			$details->comments = $my_photo->comments;
+			$details->username = $my_photo->user->username;
 			array_push($files, $details);
 		}
 		return $files;

@@ -1,20 +1,28 @@
 <?php
 
 class HomeController extends BaseController {
-
-	public function __construct() {
+	protected $photo;
+	
+	public function __construct(Photo $photo) {
+		$this->photo = $photo;
 		View::share('site_users', User::all());
 	}
 	
 	public function showWelcome() {
-		$photo = new Photo();
-		$background_img = $photo->getPopularPhoto();
-		$trip_photos = $photo->where('showme', 1)->get();
-		foreach($trip_photos as $trip_photo) {
-			$trip_photo->comments = $trip_photo->comments()->get();
+		
+		$background_img = $this->photo->getPopularPhoto();
+		//$photos = $this->photo->where('showme', 1)->get();
+		$photos = $this->photo->with('user', 'comments')->get();
+/*
+		foreach($photos as $photo) {
+			foreach($photo->comments as $comments) {
+				echo $comments->comment;
+			}
 		}
-		$trip_photos->photos = $photo->getPhotoFileData($trip_photos);
-
+*/
+// 		die;
+		$trip_photos = $this->photo->getPhotoFileData($photos);
+		
 		return View::make('trip', array('background_img' => $background_img, 'trip_photos' => $trip_photos));
 	}
 

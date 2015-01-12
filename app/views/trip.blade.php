@@ -18,7 +18,7 @@
 				<blockquote class="intro-quote text-left">Hey Guys, We're going to Roatan!  The scuba diving is great there, and you'll love the condo...<cite>Steven Davis, December 15th, 2014</cite></blockquote>
 			</div>
 		</div>
-		@foreach($trip_photos->photos as $trip_photo)
+		@foreach($trip_photos as $trip_photo)
 			<div class=" trip-photo-row row medium-collapse large-collapse">
 				<div class="small-12 columns">
 					<div class="panel radius">
@@ -34,10 +34,9 @@
 								</div>
 							</div>
 							<div class ="small-12 medium-6 columns">
-								
-								<h5 class="subheader"></h5>
-								
-								
+								@foreach($trip_photo->comments as $comments)
+								<h5 class="subheader">{{$comments->comment}}</h5>
+								@endforeach
 							</div>
 						</div>
 					</div>
