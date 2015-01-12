@@ -33,7 +33,7 @@
 					@foreach($photo->comments as $comment)
 					<div class="row comment-row">
 						<div class="small-12 medium-10 large-10 small-centered text-center columns">
-							<p photo-id="{{$photo->id}}" model-col="comment"><span>{{{$comment->comment}}}</span></p>
+							<p photo-id="{{$photo->id}}" model-col="comment"><b>{{{$comment->user->username}}} said: </b><span>{{{$comment->comment}}}</span></p>
 						</div>
 					</div>
 					@endforeach
